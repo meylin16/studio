@@ -57,12 +57,14 @@ export function LetterInput({ onGuess, disabled = false }: LetterInputProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(processSubmit)} className="flex items-end space-x-2 w-full">
+      {/* Adjusted spacing and width */}
+      <form onSubmit={form.handleSubmit(processSubmit)} className="flex items-end space-x-2 w-full justify-center px-4 sm:px-0">
         <FormField
           control={form.control}
           name="letter"
           render={({ field }) => (
-            <FormItem className="flex-grow">
+            // Ensure FormItem takes appropriate width
+            <FormItem className="flex-grow max-w-[100px] sm:max-w-[120px]">
               <FormLabel className="sr-only">Adivina una letra</FormLabel>
               <FormControl>
                 <Input
@@ -70,7 +72,8 @@ export function LetterInput({ onGuess, disabled = false }: LetterInputProps) {
                   ref={inputRef} // Assign ref
                   maxLength={1}
                   placeholder="Letra"
-                  className="text-center text-lg uppercase" // Center text and make uppercase visually
+                  // Adjusted text size for responsiveness
+                  className="text-center text-lg sm:text-xl uppercase h-12 sm:h-14" // Make input taller
                   disabled={disabled}
                   aria-label="Adivina una letra"
                   onChange={handleInputChange} // Use custom handler

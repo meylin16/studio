@@ -44,19 +44,22 @@ export function GameStatusAlert({ status, secretPhrase, onReset }: GameStatusAle
     <AlertDialog open={isOpen} onOpenChange={(open) => !open && onReset()}>
       {/* Removed AlertDialogTrigger as we control it with `open` state */}
       <AlertDialogContent
-        className="fade-in"
+        // Adjusted padding for smaller screens
+        className="fade-in p-4 sm:p-6"
         onInteractOutside={handleInteractOutside}
         onEscapeKeyDown={handleEscapeKeyDown}
         >
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-center text-2xl">{title}</AlertDialogTitle>
-          <AlertDialogDescription className="text-center text-lg">
+          {/* Adjusted text size */}
+          <AlertDialogTitle className="text-center text-xl sm:text-2xl">{title}</AlertDialogTitle>
+          {/* Adjusted text size */}
+          <AlertDialogDescription className="text-center text-base sm:text-lg">
             {description}
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter className="justify-center">
-          {/* No Cancel button needed */}
-          <AlertDialogAction onClick={onReset} className="bg-accent hover:bg-accent/90">
+        <AlertDialogFooter className="justify-center pt-2 sm:pt-4">
+          {/* Adjusted button text size */}
+          <AlertDialogAction onClick={onReset} className="bg-accent hover:bg-accent/90 text-sm sm:text-base">
             Jugar de Nuevo
           </AlertDialogAction>
         </AlertDialogFooter>

@@ -89,14 +89,15 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24">
+    // Adjusted padding for responsiveness
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12">
       <Card className="w-full max-w-2xl shadow-lg">
-        <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <CardHeader className="text-center px-4 pt-6 pb-4 sm:px-6 sm:pb-6">
+          <CardTitle className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             El Ahorcado Elegante
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col items-center space-y-6">
+        <CardContent className="flex flex-col items-center space-y-4 sm:space-y-6 p-4 sm:p-6">
           {gameState === "INPUT_PHRASE" && (
             <PhraseInput onSubmit={handlePhraseSubmit} />
           )}
@@ -109,7 +110,7 @@ export default function Home() {
                 guessedLetters={guessedLetters}
               />
               {gameState === "PLAYING" && (
-                 <div className="w-full max-w-xs space-y-4">
+                 <div className="w-full max-w-xs space-y-3 sm:space-y-4">
                   <LetterInput onGuess={handleGuess} disabled={isGameWon || isGameLost} />
                   <GuessedLetters incorrectGuesses={incorrectGuesses} />
                 </div>
