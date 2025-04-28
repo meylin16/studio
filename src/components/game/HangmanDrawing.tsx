@@ -22,7 +22,7 @@ const STROKE_COLOR = "hsl(var(--foreground))"; // Use theme foreground color
 
 export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   const viewBoxWidth = BASE_WIDTH + POST_V_WIDTH + 20; // Add some padding
-  const viewBoxHeight = BASE_HEIGHT + POST_V_HEIGHT + ROPE_LENGTH + HEAD_RADIUS * 2 + 20; // Add some padding
+  const viewBoxHeight = BASE_HEIGHT + POST_V_HEIGHT + ROPE_LENGTH + HEAD_RADIUS * 2 + LEG_LENGTH + 20; // Adjusted height to fit legs + padding
 
   // Calculate starting points dynamically based on viewBox dimensions
   const baseX = 10;
@@ -65,7 +65,8 @@ export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   ];
 
   return (
-    <div style={{ width: '200px', height: '300px', margin: 'auto' }}>
+    // Increased height of the container div to ensure the full SVG is visible
+    <div style={{ width: '200px', height: '400px', margin: 'auto' }}>
       <svg viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`} preserveAspectRatio="xMidYMid meet">
         {/* Render parts up to the current number of incorrect guesses */}
         {parts.slice(0, numberOfGuesses)}
